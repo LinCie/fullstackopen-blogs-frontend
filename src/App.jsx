@@ -10,12 +10,12 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h2>blogs</h2>
+    <main>
+      <h1 className="text-center text-3xl">Blogs</h1>
       {blogs.map((blog) => (
         <Blog key={blog.id} blog={blog} />
       ))}
-    </div>
+    </main>
   );
 };
 
