@@ -14,10 +14,8 @@ module.exports = {
   settings: { react: { version: "18.2" } },
   plugins: ["react-refresh", "tailwindcss"],
   rules: {
-    "react-refresh/only-export-components": [
-      "warn",
-      { allowConstantExport: true },
-    ],
+    "no-unused-vars": 0,
+    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "react/prop-types": 0,
     "prettier/prettier": [
       "error",
