@@ -10,7 +10,7 @@ const Layout = (props) => {
       id="top-layout"
       className="fixed inset-x-0 top-0 flex h-16 items-center justify-between border-b border-b-slate-300 bg-slate-50 px-6 py-2"
     >
-      <div className="flex items-center gap-2 text-2xl font-bold">
+      <div className="flex items-center gap-2 text-2xl font-medium">
         <svg
           width="25"
           height="25"
