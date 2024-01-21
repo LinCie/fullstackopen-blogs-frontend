@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-mono">
       <Layout user={user} handleUser={handleUser} />
-      {!user && <Login />}
+      {!user && <Login setUser={setUser} />}
       {blogs.map((blog) => (
         <Blog key={blog.id} blog={blog} />
       ))}
