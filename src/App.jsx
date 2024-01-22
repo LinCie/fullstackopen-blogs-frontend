@@ -9,8 +9,20 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    blogService.getAll().then((blogs) => setBlogs(blogs));
-  }, []);
+    if (!user) return;
+
+    const fetchBlogs = async () => {
+      try {
+        const response = await blogService.getAll(user);
+        console.log(response.data);
+        setBlogs(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchBlogs();
+  }, [user]);
 
   const handleUser = (user) => {
     setUser(user);
@@ -19,10 +31,7 @@ const App = () => {
   return (
     <div className="min-h-screen bg-slate-50 font-mono">
       <Layout user={user} handleUser={handleUser} />
-      {!user && <Login setUser={setUser} />}
-      {blogs.map((blog) => (
-        <Blog key={blog.id} blog={blog} />
-      ))}
+      {user ? <Blog blogs={blogs} /> : <Login setUser={setUser} />}
     </div>
   );
 };

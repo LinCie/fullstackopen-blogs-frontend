@@ -1,9 +1,8 @@
-import axios from "axios";
-const baseUrl = "/api/blogs";
+import { api } from "./axios";
 
-const getAll = () => {
-  const request = axios.get(baseUrl);
-  return request.then((response) => response.data);
+const getAll = (user) => {
+  const authorization = `Bearer ${user.authorization}`;
+  return api.get("/blogs", { headers: { Authorization: authorization } });
 };
 
 export default { getAll };
