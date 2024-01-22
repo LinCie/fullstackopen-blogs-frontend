@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Blog from "./components/Blog";
+import Blogs from "./components/Blog";
 import Layout from "./components/Layout";
 import blogService from "./services/blogs";
 import Login from "./components/Login";
@@ -29,9 +29,9 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-mono">
+    <div className="bg-slate-50 font-mono">
       <Layout user={user} handleUser={handleUser} />
-      {user ? <Blog blogs={blogs} /> : <Login setUser={setUser} />}
+      {user ? <Blogs blogs={blogs} user={user} /> : <Login setUser={setUser} />}
     </div>
   );
 };
