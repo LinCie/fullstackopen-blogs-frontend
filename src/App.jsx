@@ -9,12 +9,19 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    const savedUser = window.localStorage.getItem("user");
+    if (savedUser) {
+      const parsedUser = JSON.parse(savedUser);
+      setUser(parsedUser);
+    }
+  }, []);
+
+  useEffect(() => {
     if (!user) return;
 
     const fetchBlogs = async () => {
       try {
         const response = await blogService.getAll(user);
-        console.log(response.data);
         setBlogs(response.data);
       } catch (err) {
         console.log(err);

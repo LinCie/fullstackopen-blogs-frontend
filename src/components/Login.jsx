@@ -21,7 +21,13 @@ const Login = (props) => {
     setIsError(false);
     try {
       const user = await api.post("/users/login", formData);
-      setUser(user.data.authorization);
+      if (user.data) {
+        window.localStorage.setItem(
+          "user",
+          JSON.stringify(user.data.authorization),
+        );
+        setUser(user.data.authorization);
+      }
     } catch (err) {
       if (err.response.status === 401) setIsError(true);
     }
