@@ -1,9 +1,7 @@
-const Layout = (props) => {
-  const { user, setUser } = props;
+import UserDropdown from "./UserDropdown";
 
-  const handleLogOut = () => {
-    setUser(null);
-  };
+const Layout = (props) => {
+  const { user, handleUser } = props;
 
   return (
     <div
@@ -27,13 +25,7 @@ const Layout = (props) => {
         </svg>
         <div>FSO Blogs</div>
       </div>
-      <div className="text-center">
-        {user
-          ? // When the user is logged in
-            `Logged in as ${user.username}`
-          : // When the user is logged out
-            "Currently not logged in"}
-      </div>
+      <UserDropdown user={user} handleUser={handleUser} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Blogs from "./components/Blog";
-import Layout from "./components/Layout";
+import Layout from "./components/layouting/Layout";
 import blogService from "./services/blogs";
 import Login from "./components/Login";
 
