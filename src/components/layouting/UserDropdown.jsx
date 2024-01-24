@@ -61,7 +61,7 @@ const UserDropdown = (props) => {
             // Base styles
             "flex w-36 flex-col border border-slate-300 bg-slate-50 px-4 py-2 font-mono",
             // Animations
-            "data-[state=open]:data-[side=top]:animate-slideUpAndFade data-[state=open]:data-[side=right]:animate-slideRightAndFade data-[state=open]:data-[side=bottom]:animate-slideDownAndFade data-[state=open]:data-[side=left]:animate-slideLeftAndFade will-change-[transform,opacity]",
+            "will-change-[transform,opacity] data-[state=open]:data-[side=bottom]:animate-slideDownAndFade data-[state=open]:data-[side=left]:animate-slideLeftAndFade data-[state=open]:data-[side=right]:animate-slideRightAndFade data-[state=open]:data-[side=top]:animate-slideUpAndFade",
             // User conditional
             user ? "block" : "hidden",
           )}
