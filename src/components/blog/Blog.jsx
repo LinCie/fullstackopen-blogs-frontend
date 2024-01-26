@@ -67,6 +67,7 @@ const NewBlog = (props) => {
   const { setOpen } = props;
 
   const { user } = useContext(UserContext);
+  const { blogs, setBlogs } = useContext(BlogsContext);
 
   const [blog, setBlog] = useState({ title: "", url: "", likes: 0 });
 
@@ -79,10 +80,18 @@ const NewBlog = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
     try {
       const response = await blogService.postNew(user, blog);
       if (response.data) {
+        const newBlogs = [
+          ...blogs,
+          {
+            ...response.data,
+            author: user,
+          },
+        ];
+
+        setBlogs(newBlogs);
         setOpen(false);
       }
     } catch (err) {
