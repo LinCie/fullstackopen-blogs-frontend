@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import Blogs from "./components/Blog";
+import Blogs from "./components/blog/Blog";
 import Layout from "./components/layouting/Layout";
 import blogService from "./services/blogs";
 import Login from "./components/Login";
+
+import UserContext from "./contexts/UserContext";
+import BlogsContext from "./contexts/BlogsContext";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -31,14 +34,14 @@ const App = () => {
     fetchBlogs();
   }, [user]);
 
-  const handleUser = (user) => {
-    setUser(user);
-  };
-
   return (
     <div className="bg-slate-50 font-mono">
-      <Layout user={user} handleUser={handleUser} />
-      {user ? <Blogs blogs={blogs} user={user} /> : <Login setUser={setUser} />}
+      <UserContext.Provider value={{ user, setUser }}>
+        <BlogsContext.Provider value={{ blogs, setBlogs }}>
+          <Layout />
+          {user ? <Blogs /> : <Login />}
+        </BlogsContext.Provider>
+      </UserContext.Provider>
     </div>
   );
 };

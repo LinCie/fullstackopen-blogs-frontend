@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import * as Popover from "@radix-ui/react-popover";
 
+import UserContext from "../../contexts/UserContext";
+
 import { cn } from "../../lib/utils";
 
-const UserDropdown = (props) => {
-  const { user, handleUser } = props;
+const UserDropdown = () => {
+  const { user, setUser } = useContext(UserContext);
 
   const [isOpen, setisOpen] = useState(false);
 
@@ -13,7 +15,7 @@ const UserDropdown = (props) => {
 
   const handleLogOut = () => {
     window.localStorage.removeItem("user");
-    handleUser(null);
+    setUser(null);
     setisOpen(false);
   };
 

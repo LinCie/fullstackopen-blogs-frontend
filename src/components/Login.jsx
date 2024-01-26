@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import UserContext from "../contexts/UserContext";
 
 import { cn } from "../lib/utils";
 import { api } from "../services/axios";
 
-const Login = (props) => {
-  const { setUser } = props;
-
+const Login = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [isError, setIsError] = useState(false);
+
+  const { setUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     setFormData({

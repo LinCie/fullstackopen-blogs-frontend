@@ -1,8 +1,6 @@
 import UserDropdown from "./UserDropdown";
 
-const Layout = (props) => {
-  const { user, handleUser } = props;
-
+const Layout = () => {
   return (
     <div
       id="top-layout"
@@ -25,7 +23,7 @@ const Layout = (props) => {
         </svg>
         <div>FSO Blogs</div>
       </div>
-      <UserDropdown user={user} handleUser={handleUser} />
+      <UserDropdown />
     </div>
   );
 };
