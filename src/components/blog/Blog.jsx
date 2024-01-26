@@ -112,7 +112,7 @@ const Blogs = () => {
               <Dialog.Content
                 className={cn(
                   // Base styles
-                  "fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-slate-50 p-6 font-mono",
+                  "fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-slate-50 p-6 font-mono",
                   // Open state styles
                   "data-[state=open]:animate-contentShow",
                 )}
