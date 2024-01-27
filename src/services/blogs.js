@@ -12,4 +12,11 @@ const postNew = (user, blog) => {
   });
 };
 
-export default { getAll, postNew };
+const deleteBlog = (user, blog) => {
+  const authorization = `Bearer ${user.token}`;
+  return api.delete(`/blogs/${blog.id}`, {
+    headers: { Authorization: authorization },
+  });
+};
+
+export default { getAll, postNew, deleteBlog };
