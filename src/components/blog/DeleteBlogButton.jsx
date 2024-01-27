@@ -78,17 +78,19 @@ const DeleteBlogButton = (props) => {
             id="alert-dialog-button-container"
             className="flex items-center justify-end gap-4"
           >
-            <AlertDialog.Cancel
-              className={cn(
-                // Base styles
-                "rounded-md border border-slate-300 bg-slate-200 px-4 py-1 text-lg text-slate-700/90 transition duration-150 ease-in-out",
-                // Hover styles
-                "hover:opacity-70",
-                // Action styles
-                "active:scale-90 active:opacity-50",
-              )}
-            >
-              Cancel
+            <AlertDialog.Cancel asChild>
+              <button
+                className={cn(
+                  // Base styles
+                  "rounded-md border border-slate-300 bg-slate-200 px-4 py-1 text-lg text-slate-700/90 transition duration-150 ease-in-out",
+                  // Hover styles
+                  "hover:opacity-70",
+                  // Action styles
+                  "active:scale-90 active:opacity-50",
+                )}
+              >
+                Cancel
+              </button>
             </AlertDialog.Cancel>
             <AlertDialog.Action asChild>
               <button
