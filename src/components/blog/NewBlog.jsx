@@ -1,11 +1,17 @@
+// React imports
 import { useState, useContext } from "react";
 
-import { cn } from "../../lib/utils";
+// Radix imports
 import * as Dialog from "@radix-ui/react-dialog";
 
+// Utility imports
+import { cn } from "../../lib/utils";
+
+// Context imports
 import UserContext from "../../contexts/UserContext";
 import BlogsContext from "../../contexts/BlogsContext";
 
+// Service imports
 import blogService from "../../services/blogs";
 
 const NewBlogForm = (props) => {
