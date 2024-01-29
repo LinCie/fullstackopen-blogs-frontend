@@ -1,10 +1,14 @@
+// React imports
 import { useContext } from "react";
 
+// Radix imports
 import * as Separator from "@radix-ui/react-separator";
 
+// Context imports
 import UserContext from "../../contexts/UserContext";
 import BlogsContext from "../../contexts/BlogsContext";
 
+// Component imports
 import DeleteBlogButton from "./DeleteBlogButton";
 import NewBlog from "./NewBlog";
 
