@@ -1,15 +1,12 @@
 import { useState, useContext } from "react";
 
 import * as Separator from "@radix-ui/react-separator";
-import * as Dialog from "@radix-ui/react-dialog";
-
-import { cn } from "../../lib/utils";
 
 import UserContext from "../../contexts/UserContext";
 import BlogsContext from "../../contexts/BlogsContext";
 
-import NewBlog from "./NewBlog";
 import DeleteBlogButton from "./DeleteBlogButton";
+import NewBlog from "./NewBlog";
 
 const Blog = (props) => {
   const { blog } = props;
@@ -71,8 +68,6 @@ const Blogs = () => {
   const { blogs } = useContext(BlogsContext);
   const { user } = useContext(UserContext);
 
-  const [open, setOpen] = useState(false);
-
   if (!blogs.length) return null;
 
   return (
@@ -85,70 +80,8 @@ const Blogs = () => {
           You currently have {blogs?.length || 0}{" "}
           {blogs?.length > 1 ? "blogs" : "blog"}
         </p>
-        <div id="dashboard button" className="flex">
-          <Dialog.Root open={open} onOpenChange={setOpen}>
-            <Dialog.Trigger asChild>
-              <button
-                className="rounded-lg bg-green-400 p-2"
-                aria-label="new blog"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              <Dialog.Overlay
-                // eslint-disable-next-line tailwindcss/classnames-order
-                className="fixed inset-0 bg-black/50 data-[state=open]:animate-overlayShow"
-              />
-              <Dialog.Content
-                className={cn(
-                  // Base styles
-                  "fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] overflow-auto rounded-lg bg-slate-50 p-6 font-mono",
-                  // Open state styles
-                  "data-[state=open]:animate-contentShow",
-                )}
-              >
-                <Dialog.Title className="mb-1 text-xl font-medium">
-                  New Blog
-                </Dialog.Title>
-                <Dialog.Description className="mb-3 text-base text-black/60">
-                  Add a new blog into your database
-                </Dialog.Description>
-                <NewBlog setOpen={setOpen} />
-                <Dialog.Close asChild>
-                  <button className="absolute right-5 top-5">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
-                        fill="currentColor"
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                </Dialog.Close>
-              </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+        <div id="dashboard-button" className="flex">
+          <NewBlog />
         </div>
       </div>
       <Separator.Root
