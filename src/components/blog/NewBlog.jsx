@@ -111,11 +111,11 @@ const NewBlogForm = (props) => {
           type="submit"
           className={cn(
             // Base styles
-            "rounded-md border-2 border-slate-300 px-6 py-2 transition-all duration-75",
-            // onHover
-            "hover:bg-slate-100",
-            // onActive
-            "active:scale-95 active:bg-slate-300",
+            "rounded-md border border-blue-300 bg-blue-200 px-4 py-1 text-lg text-blue-700/90 transition duration-150 ease-in-out",
+            // Hover styles
+            "hover:opacity-70",
+            // Action styles
+            "active:scale-90 active:opacity-50",
           )}
         >
           Add
